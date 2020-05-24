@@ -4,11 +4,41 @@ var defaultMapTypeSelectorValue = mapTypeSelectorValue.value;
 function drawSelectedMap(selectedMap) {
     require([
         "esri/Map",
-        "esri/views/MapView"
-    ], function (Map, MapView) {
+        "esri/views/MapView",
+        "esri/Basemap",
+        "esri/layers/VectorTileLayer"
+    ], function (Map, MapView, Basemap, VectorTileLayer) {
+
+        var midCentury = new Basemap({
+            baseLayers: [
+                new VectorTileLayer({
+                    portalItem: {
+                        id: "7675d44bb1e4428aa2c30a9b68f97822"
+                    }
+                })
+            ]
+        });
+        var antique = new Basemap({
+            baseLayers: [
+                new VectorTileLayer({
+                    portalItem: {
+                        id: "effe3475f05a4d608e66fd6eeb2113c0"
+                    }
+                })
+            ]
+        });
+
+        var selectedMapValue=selectedMap;
+
+        if (selectedMap === 'mid-century') {
+            selectedMapValue=midCentury
+        }
+        if (selectedMap === 'antique') {
+            selectedMapValue=antique
+        }
 
         var map = new Map({
-            basemap: selectedMap
+            basemap: selectedMapValue
         });
 
         console.log('current basemap: ' + JSON.stringify(map.basemap));
