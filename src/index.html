@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta content="initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <title>Starter-map</title>
+  <link rel="stylesheet" href="https://js.arcgis.com/4.15/esri/themes/light/main.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://js.arcgis.com/4.15/"></script>
+  <script src="SceneView.js"></script>
+</head>
+<body>
+  <div id="viewMap1">
+    <div id="viewDiv"></div>
+    <div class="mapSelector">
+      <p class="mapSelectorDescription">Select type of the map:</p>
+      <select name="Map_type" class="mapTypeSelector" value="topo-vector">
+        <option value="topo-vector" selected="selected">Topo</option>
+        <option value="satellite">Satellite</option>
+        <option value="streets-relief-vector">Street</option>
+      </select>
+    </div>
+  </div>
+  <div id="viewDiv2"></div>
+  <script src="MapView.js"></script>
+</body>
+</html>
